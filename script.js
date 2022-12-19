@@ -33,5 +33,19 @@ addBtn.click(addItem)
 clearBtn.click(() => {
   inpNewTask.val("")
 })
+function toggleInputBtns(valIsEmpty){
+  if(valIsEmpty){
+    clearBtn.prop("disabled", false)
+    addBtn.prop("disabled", false)
+  }
+  else {
+    removeBtn.prop("disabled", true)
+    clearBtn.prop("disabled",true)
+  }
+  console.log('helo')
+}
+inpNewTask.on('input',()=>{
+  toggleInputBtns(inpNewTask.val() != '')
+})
 removeBtn.click(clearDone)
 sortBtn.click(sortDone)
